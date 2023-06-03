@@ -5,7 +5,7 @@ export default {
     aLogin(context, payload) {
         setTimeout(() => {
             context.commit('login', payload.user)
-            console.log(payload.message);
+            // console.log(payload.message);
             payload.success();
         }, 1000)
     },
