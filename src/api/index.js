@@ -3,7 +3,7 @@ import Qs from "qs";
 import { SnackbarProgrammatic as Snackbar } from 'buefy'
 
 //全局默认配置
-axios.defaults.baseURL = "http://localhost:8088/forum";
+axios.defaults.baseURL = "http://chat.itpanda.club:8088/forum";
 // axios.interceptors.request.use(
 //     config => {
 //         console.log(config);
@@ -41,7 +41,7 @@ export const adminLogin = (username, password) => {
 
 export const userLogin = (email, password) => {
     return axios.post(
-        "http://localhost:8088/forum/user/login",
+        "http://chat.itpanda.club:8088/forum/user/login",
         Qs.stringify({ email, password })
     );
 };
