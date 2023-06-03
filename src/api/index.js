@@ -3,7 +3,7 @@ import Qs from "qs";
 import { SnackbarProgrammatic as Snackbar } from 'buefy'
 
 //全局默认配置
-axios.defaults.baseURL = "http://localhost:9090";
+axios.defaults.baseURL = "http://localhost:8088/forum";
 // axios.interceptors.request.use(
 //     config => {
 //         console.log(config);
@@ -41,30 +41,30 @@ export const adminLogin = (username, password) => {
 
 export const userLogin = (email, password) => {
     return axios.post(
-        "http://localhost:9090/userlogin",
+        "http://localhost:8088/forum/user/login",
         Qs.stringify({ email, password })
     );
 };
 
 export const getAllArticle = (page) => {
-    return axios.post("/pagearticle", Qs.stringify({ page }));
+    return axios.post("/post/list", Qs.stringify({ page }));
 };
 
 export const getAllArticleType = () => {
-    return axios.post("/getallarticletype");
+    return axios.post("/topic/list");
 };
 
 export const getArticleByTypeId = typeId => {
-    return axios.post("/getarticlebytypeid", Qs.stringify({ typeId }));
+    return axios.post("/topic/get/{typeId}", Qs.stringify({ typeId }));
 };
 
 export const getHotArticleType = () => {
-    return axios.post("/gethotarticletype");
+    return axios.post("/topic/list");
 };
 
 export const getPageMain = pageNum => {
     return axios({
-        url: "/getpagearticle",
+        url: "/post/list",
         params: {
             page: pageNum
         }

@@ -150,13 +150,13 @@ export default {
         .then(res => {
           const { data } = res;
           this.user = data;
-          console.log(data);
+          // console.log(data);
           if (data != null) {
             this.$store.dispatch("aLogin", {
               user: data,
               message: "",
               success: () => {
-                console.log("欢迎您");
+                // console.log("欢迎您");
               }
             });
           } else {

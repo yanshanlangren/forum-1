@@ -187,7 +187,7 @@ export default {
 
   methods: {
     loadMore() {
-      console.log("scrolling");
+      // console.log("scrolling");
 
       this.busy = true;
       if (this.number - 1 === this.totalPages) {
