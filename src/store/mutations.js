@@ -48,4 +48,4 @@ export default {
 
 
     //方法
-}//包含多个更新state函数得对象
+} //包含多个更新state函数得对象

@@ -1,6 +1,8 @@
 import axios from "axios";
 import Qs from "qs";
-import { SnackbarProgrammatic as Snackbar } from 'buefy'
+import {
+    SnackbarProgrammatic as Snackbar
+} from 'buefy'
 
 //全局默认配置
 axios.defaults.baseURL = "http://chat.itpanda.club:9088/forum";
@@ -36,30 +38,40 @@ axios.interceptors.response.use(res => {
 
 //post传数据用data，get传参数用params
 export const adminLogin = (username, password) => {
-    return axios.post("/loginbackstage", Qs.stringify({ username, password }));
+    return axios.post("/loginbackstage", Qs.stringify({
+        username,
+        password
+    }));
 };
 
 export const userLogin = (email, password) => {
     return axios.post(
         "http://chat.itpanda.club:9088/forum/user/login",
-        Qs.stringify({ email, password })
+        Qs.stringify({
+            email,
+            password
+        })
     );
 };
 
 export const getAllArticle = (page) => {
-    return axios.post("/post/list", Qs.stringify({ page }));
+    return axios.get("/post/list", Qs.stringify({
+        page
+    }));
 };
 
 export const getAllArticleType = () => {
-    return axios.post("/topic/list");
+    return axios.get("/topic/list");
 };
 
 export const getArticleByTypeId = typeId => {
-    return axios.post("/topic/get/{typeId}", Qs.stringify({ typeId }));
+    return axios.get("/topic/get/{typeId}", Qs.stringify({
+        typeId
+    }));
 };
 
 export const getHotArticleType = () => {
-    return axios.post("/topic/list");
+    return axios.get("/topic/list");
 };
 
 export const getPageMain = pageNum => {
@@ -79,25 +91,43 @@ export const gethotuser = () => {
 };
 export const register = (userName, userPassword, userShow, userEmail, userPhone, userSex) => {
 
-    return axios.post("/register", Qs.stringify({ userName, userPassword, userShow, userEmail, userPhone, userSex }))
+    return axios.post("/register", Qs.stringify({
+        userName,
+        userPassword,
+        userShow,
+        userEmail,
+        userPhone,
+        userSex
+    }))
 
 };
 export const getcomment = (artId) => {
-    return axios.post("/getComment", Qs.stringify({ artId }))
+    return axios.post("/getComment", Qs.stringify({
+        artId
+    }))
 };
 export const newcomment = (comArtId, text, comUserId) => {
-    return axios.post("/postcomment", Qs.stringify({ comArtId, text, comUserId }))
+    return axios.post("/postcomment", Qs.stringify({
+        comArtId,
+        text,
+        comUserId
+    }))
 };
 export const newpost = (userId, title, text, select) => {
-    return axios.post("/newpost", Qs.stringify({ userId, title, text, select }))
+    return axios.post("/newpost", Qs.stringify({
+        userId,
+        title,
+        text,
+        select
+    }))
 }
 
 export const findartbyuserid = (userId) => {
-    return axios.post("/findartbyuserid", Qs.stringify({ userId }))
+    return axios.post("/findartbyuserid", Qs.stringify({
+        userId
+    }))
 }
 
 export const getuserlist = () => {
     return axios.post("/getuserlist")
 }
-
-
